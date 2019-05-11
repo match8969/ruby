@@ -1,0 +1,22 @@
+
+install:
+OpenCV@2
+
+実行コマンド：
+$ brew install opencv@2
+$ sudo gem install ruby-opencv -- --with-opencv-dir=/usr/local/Cellar/opencv@2/2.4.13.7_3
+** /usr/local/Cellar/opencv@2/2.4.13.7_3のパスは brewコマンド実行の時に表示される。
+(brew install opencv@2 | tee opencv_2_log.txt とかした方がいいかも。)
+
+
+保存場所:
+/usr/local/Cellar/opencv@2/2.4.13.7_3
+
+haarcascade_frontalface_alt.xml
+
+
+
+
+# Library:: OpenCV<https://docs.opencv.org/3.4/annotated.html>
+png: src_img = OpenCV::IplImage.load("xxx.png")
+jpg: src_img = OpenCV::CvMat.load("xxx.jpg")
