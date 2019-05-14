@@ -13,7 +13,8 @@ OUTPUT_DIR = "/Users/match/Desktop/GitHub/ruby/output/images"
 OUTPUT_FILE_PREF = "example"
 
 # Website
-WEBSITE = 'https://inkphy.com/user/'
+INKPHY = 'https://inkphy.com/user/'
+WEBSITE = INKPHY.to_s
 
 # inkphy
 NAME = "selenagomez" # @xxxのインスタグラムのドメイン
