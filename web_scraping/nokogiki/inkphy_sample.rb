@@ -1,4 +1,5 @@
-
+require 'opencv'
+include OpenCV
 
 NAME = "selenagomez"
 
@@ -27,28 +28,35 @@ p doc.title
 img_paths = []
 
 doc.xpath('//div[@class="item"]//div[@class="media"]//a[@class="mask"]//@style').each do |node|
-  #p node.text
-  img_path = URI.extract(node.to_s, ["https"])
-  img_path.to_s.gsub!(/\)/, '').gsub!(/\;/, '')
-#  img_path = (URI.extract(node.to_s, ["https"]).to_s.gsub(')', '').gsub(';', ''))
-  img_paths.push(img_path)
-
-  # img_paths.each do |img_path|
-  #
-  #   p img_path
-  # end
+  img_path = URI.extract(node.to_s.to_s.gsub!(/\);/, '') , ["https"])
+  img_paths.push(img_path[0])
 end
-p img_paths.sample
+p img_paths.sample # 画像のURL　OK
 
 
-#
-# doc.xpath('//div[@class="item"]').each do |node|
-# 	# タイトルを表示
-# 	p node.css('h3').inner_text
-# 	p node.css('img').attribute('src').value
-# 	p node.css('a').attribute('href').value
-#
-#   node.xpath('//div[@class="item"]')
-#   puts node[:href]
-#
-# end
+# 保存用ファイルネーム
+output_name = "/Users/match/Desktop/GitHub/ruby/output/images/example"
+output_image_local_paths = []
+img_paths.each_with_index do |img_path, i|
+  open(img_path) do |file|
+    file_name = "#{output_name}_#{i}.jpg"
+    open(file_name, "w+b") do |out|
+      out.write(file.read)
+    end
+    output_image_local_paths.push file_name
+  end
+end
+
+
+# Face detecter
+data = "/Users/match/Desktop/GitHub/ruby/open_cv/xml/haarcascade_frontalface_alt.xml" #最新のxml
+detector = CvHaarClassifierCascade::load(data)
+face_detect_output_name = "/Users/match/Desktop/GitHub/ruby/output/images/detect_example"
+output_image_local_paths.each_with_index do |org_local_path, i|
+  src_img = OpenCV::CvMat.load(org_local_path)
+  detector.detect_objects(src_img).each do |region|
+    detected_image = src_img.rectangle(region.top_left, region.bottom_right, :color => CvColor::Red, :thickness => 3)
+    detect_file_name = "#{face_detect_output_name}_#{i}.jpg"
+    detected_image.save detect_file_name
+  end
+end

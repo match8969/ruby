@@ -14,6 +14,7 @@ detector = CvHaarClassifierCascade::load(data)
 # src_img = OpenCV::IplImage.load("/Users/match/Desktop/GitHub/ruby/images/gakki_1.jpg") # NG
 # src_img_2 = OpenCV::IplImage.load("/Users/match/Desktop/GitHub/ruby/images/gakki_1_2.jpg") # NG
 src_img = OpenCV::CvMat.load("/Users/match/Desktop/GitHub/ruby/images/gakki_1.jpg") # OK
+puts src_img.class
 
 
 detector.detect_objects(src_img).each do |region|
