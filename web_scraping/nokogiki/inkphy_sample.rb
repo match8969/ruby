@@ -17,7 +17,7 @@ INKPHY = 'https://inkphy.com/user/'
 WEBSITE = INKPHY.to_s
 
 # inkphy
-NAME = "selenagomez" # @xxxのインスタグラムのドメイン
+NAME = "ytp49"#{}"taotsuchiya_official"#{}"selenagomez" # @xxxのインスタグラムのドメイン
 REG_EXP_INKPHY_IMAGE = '//div[@class="item"]//div[@class="media"]//a[@class="mask"]//@style'
 
 # スクレイピング先のURL
