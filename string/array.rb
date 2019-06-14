@@ -38,3 +38,11 @@ p 'c&d if' if (c & d).empty?
 #p 'c&d if' if (c & d).exist?
 
 #puts (a & b)
+
+
+# compare
+x = [1, 2, 3]
+y = [1, 3, 2]
+x = []
+puts "compare=#{x==y}"
+puts "minus = #{(x-y).empty?}"
