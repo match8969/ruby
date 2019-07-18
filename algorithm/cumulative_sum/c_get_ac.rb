@@ -18,7 +18,7 @@ N.times.with_index do |i|
 end
 
 # クエリ
-Q.times.with_index do |i|
+Q.times do
   l, r = gets.split(" ").map(&:to_i)
   # index のために 1をへらす
   l -= 1
