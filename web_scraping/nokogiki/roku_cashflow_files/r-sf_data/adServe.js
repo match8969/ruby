@@ -1,0 +1,8 @@
+var adContent = '';
+adContent += '<!-- AdPlacement : ipneafinanceldrb2 -->' + '\n';
+adContent += '<!-- Oath SSP BannerAd DspId:0, SeatId:10827, DspCrId:passback-4069 -->' + '\n';
+adContent += '<i' + 'mg src="https://ap-southeast-1.onemobile.yahoo.com/admax/adEvent.do?tidi=770829411&amp;sitepid=222769&amp;posi=937708&amp;grp=%3F%3F%3F&amp;nl=1566639703801&amp;rts=1566639703608&amp;pix=1&amp;et=1&amp;a=0bcecb3572ae4a8dbd9349df6886d6a0&amp;m=aXAtMTAtMjItMTQ4LTE3NA..&amp;b=MTA4Mjc7QVBBQyAtIEFkWCBQYXNzYmFjazs_Pz87Ozs7Oy0xOzE1NjY2MzU0MDA.&amp;xdi=RmlyZWZveCAtIE9TIFh8Pz8_fDEwLjE0fDE4&amp;xoi=MHxKUE4.&amp;brxdPublisherId=28261959434&amp;brxdSiteId=244061&amp;brxdSectionId=68789061&amp;dety=5" style="display:none;width:1px;height:1px;border:0;" width="1" height="1" alt=""/>' + '\n';
+adContent += '<scr' + 'ipt async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></scr' + 'ipt> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-6785382607161389" data-language="zh-tw" data-ad-slot="5366616521" data-page-url="https://finance.yahoo.com/quote/ROKU/cash-flow"> </ins> <scr' + 'ipt> (adsbygoogle = window.adsbygoogle || []).push({params: {google_allow_expandable_ads: false}}); </scr' + 'ipt> <iframe height="1" width="1" style="display: none;" scrolling="no" allowtransparency="true" src="https://s.yimg.com/ja/ap/ssp_cookie_sync/apac.html"></iframe>' + '\n';
+adContent += '<scr' + 'ipt type="text/javascript" src="https://ads.yahoo.com/get-user-id?ver=2&n=38544&ts=1566639703&sig=d21f4ed69b329635&gdpr=0&gdpr_consent="></scr' + 'ipt>' + '\n';
+adContent += '<!-- Ads by - Optimized by AdMax from NEXAGE - Saturday, August 24, 2019 5:41:43 AM EDT -->' + '\n';
+document.write(adContent);
