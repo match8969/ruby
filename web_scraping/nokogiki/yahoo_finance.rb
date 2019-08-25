@@ -27,9 +27,9 @@ REG_EXP_CASH_FLOW = '//div[@id="render-target-default"]//div[@data-reactid="1"]/
 REG_EXP_FINANCIAL = '//span[@data-reactid="126"]'
 # REG_EXP_INKPHY_IMAGE = '//div[@class="item"]//div[@class="media"]//a[@class="mask"]//@style'
 
-
+## CASH FLOW PAGE ##
 # Period Ending
-REG_EXP_PERIOD_ENDING_TITLE=30
+REG_EXP_PERIOD_ENDING_TITLE=30 # TODO: 命名 : cashflowの方ってわかるようにしときたい。　指定reactidが違う,,,
 REG_EXP_PERIOD_ENDING_PQ_ONE=32
 REG_EXP_PERIOD_ENDING_PQ_TWO=34
 REG_EXP_PERIOD_ENDING_PQ_THREE=36
@@ -48,6 +48,11 @@ REG_EXP_TCFO_PQ_ONE=123
 REG_EXP_TCFO_PQ_TWO=125
 REG_EXP_TCFO_PQ_THREE=127
 REG_EXP_TCFO_PQ_FOUR=129
+
+## FINANCIAL PAGE ##
+# TODO: ★reactidが存在しない。。。どうやって指定しよう。。。。。。。 classしかない。。。
+
+
 
 
 
@@ -127,10 +132,7 @@ def scraping_yahoo_finance(ticker_symbol)
 
     cashflow_doc.xpath(REG_EXP_CASH_FLOW).each do |node|
 
-
-      puts "node = #{node.text}" if node.to_s.match(/.*?data-reactid=\"#{REG_EXP_PERIOD_ENDING_TITLE}\"/) # period Ending
-
-     #      # 決算の日付の取得
+     # 決算の日付の取得
             period_title = "#{node.text}" if node.to_s.match(/.*?data-reactid=\"#{REG_EXP_PERIOD_ENDING_TITLE}\"/)
             period_date_pre_q1 = "#{node.text}" if node.to_s.match(/.*?data-reactid=\"#{REG_EXP_PERIOD_ENDING_PQ_ONE}\"/)
             period_date_pre_q2 = "#{node.text}" if node.to_s.match(/.*?data-reactid=\"#{REG_EXP_PERIOD_ENDING_PQ_TWO}\"/)
@@ -151,32 +153,6 @@ def scraping_yahoo_finance(ticker_symbol)
             tcfo_pre_q2 = "#{node.text}" if node.to_s.match(/.*?data-reactid=\"#{REG_EXP_TCFO_PQ_TWO}\"/)
             tcfo_pre_q3 = "#{node.text}" if node.to_s.match(/.*?data-reactid=\"#{REG_EXP_TCFO_PQ_THREE}\"/)
             tcfo_pre_q4 = "#{node.text}" if node.to_s.match(/.*?data-reactid=\"#{REG_EXP_TCFO_PQ_FOUR}\"/)
-
-
-
-     #      puts "日付 Title : #{node.text}" if node.to_s.include?("30")
-     #      puts "日付 A : #{node.text}" if node.to_s.include?("32")
-     #      puts "日付 B : #{node.text}" if node.to_s.include?("34")
-     #      puts "日付 C : #{node.text}" if node.to_s.include?("36")
-     #      puts "日付 D : #{node.text}" if node.to_s.include?("38")
-     #
-     #   # 純利益
-     #     puts "純利益 Title : #{node.text}" if node.to_s.include?("41")
-     #     puts "Income カラム1 = #{node.text}" if node.to_s.include?("43")
-     #     puts "Income カラム2 = #{node.text}" if node.to_s.include?("45")
-     #     puts "Income カラム3 =  #{node.text}" if node.to_s.include?("47")
-     #     puts "Income カラム4 = #{node.text}" if node.to_s.include?("49")
-     #
-     #   # 営業キャッシュフロー
-     #      # 数値の取得
-     #      # TODO: idの決めうちを解決したい。 (total cash flow の文字を確認したらそのid を取得して, そのid +2とかそんなかんじに。)
-     #      puts "営業キャッシュフロー Title : #{node.text}" if node.to_s.include?("121")
-     #      puts "Cash Flow カラム1 = #{node.text}" if node.to_s.include?("123")
-     #      puts "Cash Flow カラム2 = #{node.text}" if node.to_s.include?("125")
-     #      puts "Cash Flow カラム3 = #{node.text}" if node.to_s.include?("127")
-     #      puts "Cash Flow カラム4 = #{node.text}" if node.to_s.include?("129")
-     # end
-     #
    end
 
    # test
@@ -200,8 +176,6 @@ def scraping_yahoo_finance(ticker_symbol)
    puts "tcfo_pre_q2 : #{tcfo_pre_q2}"
    puts "tcfo_pre_q3 : #{tcfo_pre_q3}"
    puts "tcfo_pre_q4 : #{tcfo_pre_q4}"
-
-
 
 
    puts "----- financial test -----"
