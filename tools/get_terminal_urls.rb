@@ -1,4 +1,4 @@
-# Execute at ruby dir. Like "ruby % ".
+# Execute at ruby dir. Like "ruby % ruby tools/get_terminal_urls.rb".
 
 def get_response_of(url)
     require 'net/http'
@@ -35,6 +35,7 @@ def get_terminal_url(url)
             uri  = URI.parse(url)
             prefix = "#{uri.scheme}://#{uri.host}"
             redirected_url = prefix + redirected_url
+            redirected_url.gsub!(" ", "")
         end
 
         url = redirected_url
@@ -65,7 +66,7 @@ def main
     CSV.open(output_file_path, "wb") do |csv|
         csv << [  "元URL", "たどり着くURL"]
 
-        data_list.each do |list|
+        data_list.each_with_index do |list, index|
 
             url = list[0]
             unless url.start_with?(/http/)
@@ -74,6 +75,10 @@ def main
 
             terminal_url = get_terminal_url(url)
             csv << [ "#{url}", "#{terminal_url}"]
+
+            if index % 10 == 0
+                puts "ただいま#{index}件処理済"
+            end
         end
     end
 
